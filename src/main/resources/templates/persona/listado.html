@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+<header th:replace="layout/layout :: header"></header>
+
+<table>
+    <thead>
+        <tr>
+            <td>Nombres</td>
+            <td>Apellidos</td>
+            <td>Email</td>
+            <td>Fecha Nacimiento</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="per: ${person}">
+            <th th:text="${per.nombres}"></th>
+            <th th:text="${per.apellidos}"></th>
+            <th th:text="${per.email}"></th>
+            <th th:text="${per.fechaNacimiento}"></th>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
