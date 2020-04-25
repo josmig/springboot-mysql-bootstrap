@@ -12,7 +12,6 @@ public class Persona implements Serializable {
 
     private static final long serialVersionUID=1L;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,19 +21,18 @@ public class Persona implements Serializable {
     private String apellidos;
     @Column
     private String email;
-    @Column
+    @Column(name = "fecha_naci")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha_nacimiento;
 
-    @Column(name="createAt")
+    @Column(name="create_at")
     private Date creacion;
 
     @PrePersist
-    public void Persona (){
+    public void prePersist () {
         creacion = new Date();
-        }
-
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -72,12 +70,12 @@ public class Persona implements Serializable {
         this.email = email;
     }
 
-    public Date getFechaNacimiento() {
+    public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fecha_nacimiento = fechaNacimiento;
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
     }
 
     public Date getCreacion() {

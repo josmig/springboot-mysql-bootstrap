@@ -1,25 +1,37 @@
 package com.pantigoso.app.springbootdemo.Controller;
 
 import com.pantigoso.app.springbootdemo.Dao.IPersonDao;
+import com.pantigoso.app.springbootdemo.Dao.IPersonaImpl;
+import com.pantigoso.app.springbootdemo.Model.Persona;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
 @Controller
-@RequestMapping(name = "/persona")
+@RequestMapping("/person")
 public class PersonaController {
 
+    @Autowired
+    private IPersonaImpl personaDao;
 
-    private IPersonDao personDao;
-
-    @GetMapping(name = "/listado")
-    public String listado(Map<String,Object>map){
+    @GetMapping("/list")
+    public String listado(Map<String,Object>model){
         String titulo ="Usuarios";
-        map.put("person",personDao.findAll());
-        map.put("title",titulo);
+        model.put("person", personaDao.findAll());
+        model.put("title",titulo);
 
         return "persona/listado";
+    }
+    @GetMapping("/form")
+    public String crear(Model model){
+
+        Persona person= new Persona();
+        model.addAttribute("title","Crear usuario");
+        model.addAttribute("persona",person);
+        return "persona/formulario";
     }
 }

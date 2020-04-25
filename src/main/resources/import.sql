@@ -1,1 +1,2 @@
-insert into persona (id,nombres,apellidos,email,fecha_nacimiento)values(1,'José Miguel','Pantigoso Puraca','pantigosomiguel59@gmail.com','1998-03-30');
+insert into persona (id,nombres,apellidos,email,fecha_naci)values(1,'José Miguel','Pantigoso Puraca','pantigosomiguel59@gmail.com','1998-03-30');
+insert into persona (id,nombres,apellidos,email,fecha_naci)values(2,'Edel Naara','Pantigoso Puraca','pantigosomiguel59@gmail.com','1998-03-30');

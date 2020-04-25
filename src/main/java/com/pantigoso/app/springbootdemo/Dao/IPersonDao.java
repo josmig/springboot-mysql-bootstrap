@@ -1,6 +1,7 @@
 package com.pantigoso.app.springbootdemo.Dao;
 
 import com.pantigoso.app.springbootdemo.Model.Persona;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
