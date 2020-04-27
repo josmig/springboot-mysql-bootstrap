@@ -5,20 +5,28 @@
 
 <header th:replace="layout/layout :: header"></header>
 
-<form th:action="@{/person/form}" th:object="${persona}" method="post">
-
-    <label>Nombre</label>
-    <input type="text" th:field="*{nombres}">
-    <label>Apellidos</label>
-    <input type="text" th:field="{*apellidos}">
-    <label>Email</label>
-    <input type="text" th:field="{*email}">
-    <label>Fecha Nacimiendo</label>
-    <input type="text" th:field="{*fecha_nacimiento}">
-    <input type="submit" value="Crear usuario">
-</form>
-
-
+<div class="container">
+    <h1 th:text="${title}"></h1>
+    <form th:action="@{/person/form}" th:object="${persona}" method="post">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" th:field="*{nombres}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" th:field="*{apellidos}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" th:field="*{email}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Fecha Nacimiendo</label>
+            <input type="text" th:field="*{fecha_nacimiento}" class="form-control">
+        </div>
+        <input type="submit" value="Crear usuario" class="btn btn-outline-primary">
+    </form>
+</div>
 
 </body>
 </html>

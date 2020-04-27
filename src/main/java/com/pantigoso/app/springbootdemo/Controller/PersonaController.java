@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
@@ -30,8 +31,13 @@ public class PersonaController {
     public String crear(Model model){
 
         Persona person= new Persona();
-        model.addAttribute("title","Crear usuario");
+        model.addAttribute("title","Formulario de Usuario");
         model.addAttribute("persona",person);
         return "persona/formulario";
+    }
+    @PostMapping("/form")
+    public String save(Persona persona , Map<String , Object>model){
+        personaDao.save(persona);
+        return "redirect:/person/list";
     }
 }

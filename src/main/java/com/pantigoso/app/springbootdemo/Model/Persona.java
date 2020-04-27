@@ -27,6 +27,7 @@ public class Persona implements Serializable {
     private Date fecha_nacimiento;
 
     @Column(name="create_at")
+    @Temporal(TemporalType.DATE)
     private Date creacion;
 
     @PrePersist

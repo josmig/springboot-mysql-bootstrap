@@ -4,25 +4,30 @@
 <body>
 <header th:replace="layout/layout :: header"></header>
 
-<a href=""></a>
-<table>
-    <thead>
+<div class="container mt-2">
+    <a th:href="@{/person/form}" class="btn btn-outline-info mb-2 mt-2">Crear usuario</a>
+    <table class="table table-striped">
+        <thead class="thead-dark">
         <tr>
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>Email</th>
             <th>Fecha Nacimiento</th>
+            <th>Creado en</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr th:each="per:${person}">
             <td th:text="${per.nombres}"></td>
             <td th:text="${per.apellidos}"></td>
             <td th:text="${per.email}"></td>
             <td th:text="${per.fecha_nacimiento}"></td>
+            <td th:text="${per.creacion}"></td>
             <td th:text="${per.id}" hidden></td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
