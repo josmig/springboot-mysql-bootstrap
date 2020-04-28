@@ -29,11 +29,11 @@ public class IPersonaImpl implements IPersonDao {
 
     @Override
     public Persona find(Long id) {
-        return null;
+        return em.find(Persona.class,id);
     }
 
     @Override
     public void delete(Long id) {
-
+        em.remove(id);
     }
 }

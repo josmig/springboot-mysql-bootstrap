@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,5 +40,18 @@ public class PersonaController {
     public String save(Persona persona , Map<String , Object>model){
         personaDao.save(persona);
         return "redirect:/person/list";
+    }
+    @GetMapping("/form/{id}")
+    public String editar(@PathVariable(value="id")Long id, Map<String,Object>model){
+
+        Persona person = null;
+        if(id > 0){
+            person = personaDao.find(id);
+        }else{
+            return "redirect:/person/list";
+        }
+        model.put("title","Editar Usuario");
+        model.put("persona",person);
+        return "persona/formulario";
     }
 }
