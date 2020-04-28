@@ -54,4 +54,11 @@ public class PersonaController {
         model.put("persona",person);
         return "persona/formulario";
     }
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable(value="id")Long id){
+        if(id > 0){
+            personaDao.delete(id);
+        }
+        return "redirect:/person/list";
+    }
 }

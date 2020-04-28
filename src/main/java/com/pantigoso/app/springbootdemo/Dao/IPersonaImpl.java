@@ -28,12 +28,14 @@ public class IPersonaImpl implements IPersonDao {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Persona find(Long id) {
         return em.find(Persona.class,id);
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
-        em.remove(id);
+        em.remove(find(id));
     }
 }

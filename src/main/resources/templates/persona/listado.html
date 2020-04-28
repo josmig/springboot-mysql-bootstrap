@@ -27,6 +27,7 @@
             <td th:text="${per.id}" hidden></td>
             <td>
                 <a th:href="@{/person/form/} + ${per.id}">Edit</a>
+                <a th:href="@{/person/delete/} + ${per.id}">Delete</a>
             </td>
         </tr>
         </tbody>
