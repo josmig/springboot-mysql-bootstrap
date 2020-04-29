@@ -3,6 +3,9 @@ package com.pantigoso.app.springbootdemo.Model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -15,15 +18,21 @@ public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @Column
+    @NotEmpty
     private String nombres;
     @Column
+    @NotEmpty
     private String apellidos;
     @Column
+    @NotEmpty
+    @Email
     private String email;
     @Column(name = "fecha_naci")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull
     private Date fecha_nacimiento;
 
     @Column(name="create_at")

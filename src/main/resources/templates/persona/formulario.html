@@ -11,18 +11,26 @@
         <div class="form-group">
             <label>Nombre</label>
             <input type="text" th:field="*{nombres}" class="form-control">
+            <span class="badge badge-danger"
+                    th:field="${#fields.hasErrors('nombres')}" th:errors="*{nombres}"></span>
         </div>
         <div class="form-group">
             <label>Apellidos</label>
             <input type="text" th:field="*{apellidos}" class="form-control">
+            <span class="badge badge-danger"
+                    th:field="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></span>
         </div>
         <div class="form-group">
             <label>Email</label>
             <input type="text" th:field="*{email}" class="form-control">
+            <span class="badge badge-danger"
+                    th:field="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
         </div>
         <div class="form-group">
             <label>Fecha Nacimiendo</label>
             <input type="text" th:field="*{fecha_nacimiento}" class="form-control">
+            <span class="badge badge-danger"
+                    th:fiel="${#fields.hasErrors('fecha_nacimiento')}" th:errors="*{fecha_nacimiento}"></span>
         </div>
         <input type="submit" value="Crear usuario" class="btn btn-outline-primary">
     </form>

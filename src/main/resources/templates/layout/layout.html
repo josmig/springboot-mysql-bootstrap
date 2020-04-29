@@ -23,7 +23,15 @@
             </ul>
         </div>
     </nav>
+
+    <!--Mensajes flash-->
+    <span class="alert alert-success" th:if="${suc != null}" th:text="${suc}"></span>
+    <span class="alert alert-danger" th:if="${error != null}" th:text="${error}"></span>
+    <span class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></span>
+    <span class="alert alert-info" th:if="${info != null}" th:text="${info}"></span>
+
 </header>
+
 
 
 
